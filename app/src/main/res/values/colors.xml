@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Background -->
+    <color name="background">#F7F8FC</color>
+
+    <!-- Text -->
+    <color name="textPrimary">#1A1C3A</color>
+    <color name="textSecondary">#757A98</color>
+
+    <!-- Search -->
+    <color name="hint">#9CA2C2</color>
+
+    <!-- Primary -->
+    <color name="primary">#4F46F8</color>
+    <color name="primaryDark">#2E33D8</color>
+    <color name="primaryLight">#7367FF</color>
+
+</resources>
