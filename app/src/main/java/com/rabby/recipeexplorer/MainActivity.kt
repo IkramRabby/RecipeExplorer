@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
+import com.rabby.recipeexplorer.data.dto.MoshiDeserialization
 import com.rabby.recipeexplorer.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -27,6 +28,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.rvItem.layoutManager = GridLayoutManager(this,2)
         setRecipe()
+
+
+        MoshiDeserialization.printRecipeDetails()
+        MoshiDeserialization.testInvalidJson()
 
 
     }
