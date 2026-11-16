@@ -5,6 +5,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import coil3.load
+import coil3.request.crossfade
 import com.rabby.recipeexplorer.databinding.ActivityRecipeDetailsBinding
 
 class RecipeDetails : AppCompatActivity() {
@@ -24,13 +26,15 @@ class RecipeDetails : AppCompatActivity() {
             insets
         }
 
-        val image = intent.getIntExtra("RECIPE_IMAGE",0)
+        val image = intent.getStringExtra("RECIPE_IMAGE")
         val name = intent.getStringExtra("RECIPE_NAME")
-        val time = intent.getStringExtra("RECIPE_TIME")
+        val time = intent.getIntExtra("RECIPE_TIME",0)
 
 
 
-        binding.recipeImage.setImageResource(image)
+        binding.recipeImage.load(image){
+            crossfade(true)
+        }
         binding.recipeName.text = name
         binding.recipeTime.text = "Time : ${time}min"
 

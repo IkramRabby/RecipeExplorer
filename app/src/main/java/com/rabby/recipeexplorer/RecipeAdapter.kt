@@ -4,11 +4,19 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil3.load
+import coil3.request.crossfade
+import com.rabby.recipeexplorer.data.dto.RecipeDto
 import com.rabby.recipeexplorer.databinding.ItemRecipeBinding
 
 class RecipeAdapter(
-    private val list : List<Recipe>
+    private var list: List<RecipeDto> = emptyList()
 ) : RecyclerView.Adapter<RecipeAdapter.ViewHolder>() {
+
+    fun updateList(newList: List<RecipeDto>){
+        list = newList
+        notifyDataSetChanged()
+    }
 
     inner class ViewHolder(
         val binding: ItemRecipeBinding
@@ -31,8 +39,10 @@ class RecipeAdapter(
         holder.apply {
 
             binding.recipeName.text = recipe.name
-            binding.recipeTime.text = "Time : ${recipe.cookingTime}min"
-            binding.recipeImage.setImageResource(recipe.image)
+            binding.recipeTime.text = "Time : ${recipe.cookTimeMinutes}min"
+            binding.recipeImage.load(recipe.image){
+                crossfade(true)
+            }
 
             binding.btnItemDetails.setOnClickListener {
 
@@ -41,7 +51,7 @@ class RecipeAdapter(
                 val intent = Intent(context, RecipeDetails::class.java)
 
                 intent.putExtra("RECIPE_NAME",recipe.name)
-                intent.putExtra("RECIPE_TIME",recipe.cookingTime)
+                intent.putExtra("RECIPE_TIME",recipe.cookTimeMinutes)
                 intent.putExtra("RECIPE_IMAGE",recipe.image)
 
 

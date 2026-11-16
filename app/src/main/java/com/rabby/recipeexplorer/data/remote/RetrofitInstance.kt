@@ -6,11 +6,13 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 object RetrofitInstance {
 
-    private val retrofit : Retrofit = Retrofit.Builder()
+    private val retrofit: Retrofit = Retrofit.Builder()
         .baseUrl("https://dummyjson.com/")
         .addConverterFactory(MoshiConverterFactory.create(MoshiProvider.moshi))
         .build()
 
-    val api  = RetrofitInstance.retrofit
-        .create(RecipeApiService :: class.java)
+    val api: RecipeApiService = retrofit.create(RecipeApiService::class.java)
+
+
+
 }

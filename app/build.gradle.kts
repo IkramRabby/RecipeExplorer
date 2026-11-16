@@ -47,4 +47,6 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     implementation(libs.retrofit.moshi)
     implementation(libs.moshi.kotlin)
+    implementation("io.coil-kt.coil3:coil:3.1.0")
+    implementation("io.coil-kt.coil3:coil-network-okhttp:3.1.0")
 }

@@ -9,18 +9,18 @@ import retrofit2.http.Query
 interface RecipeApiService {
 
     @GET("recipes")
-    suspend fun getRecipes() : RecipesResponseDto
+    suspend fun getRecipes(): RecipesResponseDto
 
     @GET("recipes/{id}")
     suspend fun getRecipeById(
-        @Path("id") id : Int
-    ) : RecipeDto
+        @Path("id") id: Int
+    ): RecipeDto
 
 
     @GET("recipes/search")
     suspend fun searchRecipe(
-        @Query("q") query : String
-    ) : RecipesResponseDto
+        @Query("q") query: String
+    ): RecipesResponseDto
 
 
 }
